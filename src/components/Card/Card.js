@@ -1,16 +1,19 @@
 import React from 'react'
-import Image from '../Image/Image'
-import CardBody from '../CardBody/CardBody'
+import PropTypes from 'prop-types'
 
 function Card({ img, ...props }) {
   return (
     <div className='card' style={{ width: '18rem' }}>
-      <Image src={img}/>
-      <CardBody>
+      { img && <img src={img} className="card-img-top" alt="..."/> }
+      <div className="card-body">
         {props.children}
-      </CardBody>
+      </div>
     </div>
   )
+}
+
+Card.propTypes = {
+  img: PropTypes.string,
 }
 
 export default Card
